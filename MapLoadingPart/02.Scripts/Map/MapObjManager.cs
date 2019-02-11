@@ -138,16 +138,14 @@ namespace hcp
             }
         }
 
-        void Update()   //지금 랜덤 무한 생성 모드와 픽스드 모드를 어떻게 할지 결정해야하는데 고민이야.
-            //변수 하나 받아와서 여기서 그냥 분기할까 클래스를 나눌까...
+        void Update()  
         {
-            // newPos = GetPosByChunkMargin(); //코루틴으로 체크 부하를 줄임
             if (stageAllDone)
             {
                 return;
             }
 
-            if (isStage()&&stageRemain == false)   //스테이지에서 더 생산 할 게 없음. 종료. 필요.
+            if (isStage()&&stageRemain == false)   //스테이지에서 더 생산 할 게 없음. 종료.
             {
 
                 if (playerTr.position.z >= endingPoint + 2f)
@@ -165,9 +163,9 @@ namespace hcp
             
             nowPos = newPos;
 
-            if (isStage()&&StageST.AllQueIsDeqed() && turnSet.IsDisabled() )    //회전도 다돌고 옵젝큐도 뭐도 없고 끝
+            if (isStage()&&StageST.AllQueIsDeqed() && turnSet.IsDisabled() )    //회전과 오브젝트 모두 완료. 종료,
             {
-                Debug.Log("스테이지 종료."+nowPos);   //프론트 청크 -1 만큼 청크가 앞에 있응 상황에서 선언됨
+                Debug.Log("스테이지 종료."+nowPos);   //프론트 청크 -1 만큼 청크가 앞에 있는 상황에서 선언됨
                 stageRemain = false;
 
                 endingPoint = nowPos + ((Constants.frontShowChunks - 1) * chunkMargin);
@@ -207,17 +205,13 @@ namespace hcp
         void WhenTurningFinished()
         {
             if ((nowPos >= (turnSet.ConvertTurnPointToRealTurnPoint(chunkMargin) + ( (3 + 1) * chunkMargin) )))
-                //포지션이 완전히 기역자 청크를 지나침.터닝 프로세스 완료. 터닝 초기화! 
-                //3은 굉장히 기역자 청크에 종속적인 숫자고. 1은 기역자 청크가 갑자기 없어지면 화면이 이상해서 넣은것
+                //포지션이 완전히 기역자 청크를 지나침.터닝 프로세스 완료. 터닝 초기화 시점.
+                //3은 굉장히 기역자 청크에 종속적인 숫자. 1은 기역자 청크가 갑자기 없어지면 화면이 이상해서 추가.
             {
                 print("터닝 피니쉬드!");
-
-                //turnSet = null; //지금 ==null 체크가 다음 업데이트 프레임 넘어가면서 if 구문에서 걸리지를 않음.
-                //if (turnSet == null) Debug.Log("널이 되었다 드디어");
-
+                
                 turnSet.DisableThisSet();
-
-                //print(turnSet.Init.ToString()+ turnSet.turningPoint.ToString()+ turnSet.whichTurn.ToString());
+                
                 TurnPartInCharge.GetInstance().Reset();
 
                 //ui 쪽에 터닝포인트와 방향 리셋

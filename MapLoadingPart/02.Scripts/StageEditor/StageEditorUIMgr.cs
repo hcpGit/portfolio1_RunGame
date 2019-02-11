@@ -165,15 +165,12 @@ namespace hcp
         }
         public void OnExitNowPosBtnClick()
         {
-            //경고 메세지 띄우rl
             ShowReset();
             WarningEditorExitAtThisPos.SetActive(true);
         }
         public void OnYesExitNowPosBtnClick()
         {
-            //현재 시점에서 에디터 종료 버튼 눌렸을때
             sem.ForcedEditFinishedAtThisPoint();
-            //에디터 종료하고 씬 로드 해주는 거 잊지말기!!
             sem.EditorIsDone();
         }
 

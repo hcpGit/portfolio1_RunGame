@@ -31,8 +31,7 @@ namespace hcp
                     spawned =
                     GenByPool(MapAndObjPool.GetInstance().GetItemCoinInPool(), spawnPoint);
                     break;
-                case E_SPAWN_OBJ_TYPE.COIN_PARABOLA://포물선 중앙에 허들 이나 그거 문제
-                                                    //생성을 할것이냐. 풀링 자체에서 허들을 그냥 false시킬 것이냐.
+                case E_SPAWN_OBJ_TYPE.COIN_PARABOLA:
                     spawned =
                     GenByPool(MapAndObjPool.GetInstance().GetItemCoin_Parabola_InPool(), spawnPoint);
                     break;

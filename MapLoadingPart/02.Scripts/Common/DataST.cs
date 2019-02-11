@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace hcp
 {
+
     [System.Serializable]
     public enum E_STAGE
     {
@@ -86,6 +87,7 @@ namespace hcp
 
         EOBJTYPEMAX
     };
+
     
     [System.Serializable]
     public class ItemST
@@ -98,5 +100,20 @@ namespace hcp
     {
         public E_OBSTACLE obstacleType { set; get; }
         public bool beenHit {set;get;}
+    };
+
+    [System.Serializable]
+    public enum E_BOSSPATTERN
+    {
+        ONCE_FIREBALL = 0,
+        BREATH,
+        METEOR
+    };
+    [System.Serializable]
+    public enum E_SPAWNLINE
+    {
+        LEFT = 0,
+        CENTER,
+        RIGHT
     };
 }

@@ -63,8 +63,6 @@ public class StageDataMgr  : SingletonTemplate<StageDataMgr>{
         FileStream fs;
         if (File.Exists(editStageDataPath + "/" + stageName))
         {
-            //바이너리 직렬화는 끝났고
-            //xml 포맷으로 만들어서 네트워크로 쏘는 거 생각해보기.
             fs = File.Open(editStageDataPath + "/" + stageName, FileMode.Open);
         }
         else

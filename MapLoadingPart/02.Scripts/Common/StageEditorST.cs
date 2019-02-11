@@ -7,19 +7,19 @@ namespace hcp
     [System.Serializable]
     public class StageEditorST
     {
-        public int pos;     //회전 청크일때 나중에 직렬화 할때 꼭 터닝포인트로 넣어주는거 잊지말기!
+        public int pos;    
         public E_WhichTurn whichTurn;
-        public StageObjArr soa = new StageObjArr();    //스폰 타입 저장
+        public StageObjArr soa = new StageObjArr();   
 
-        [System.NonSerialized]  //이거 나중에 직렬화 저장할때 꼭 해주기
+        [System.NonSerialized]
         public GameObject floorChunk;
-        [System.NonSerialized]  //이거 나중에 직렬화 저장할때 꼭 해주기
+        [System.NonSerialized] 
         public bool isNowShowed=false;
-        [System.NonSerialized]  //이거 나중에 직렬화 저장할때 꼭 해주기
+        [System.NonSerialized] 
         public List<GameObject> objs = new List<GameObject>();
-        [System.NonSerialized]  //이거 나중에 직렬화 저장할때 꼭 해주기
+        [System.NonSerialized] 
         Vector3 bornPos = new Vector3(0, 0, 0);
-        [System.NonSerialized]  //이거 나중에 직렬화 저장할때 꼭 해주기
+        [System.NonSerialized] 
         Transform spg;
 
         public int GetRealTurningPoint()
@@ -29,9 +29,8 @@ namespace hcp
 
         public void showThisToEditor(int standardPos, float chunkMargin)
         {
-            bornPos.z = (pos - standardPos) * chunkMargin;  //이렇게 하면 기준 점기준으로 현재 pos가 가리키는 위치를 얻을 수 있어.
-
-            //Debug.Log(bornPos.ToString() + "에 생성!!");
+            bornPos.z = (pos - standardPos) * chunkMargin;  //기준점 대응 현재 pos 값 얻음.
+            
 
             switch (whichTurn)
             {
@@ -69,7 +68,6 @@ namespace hcp
             if (floorChunk == null)
                 ErrorManager.SpurtError("생성도 안됐는데 삭제를 불러와짐");
            
-                //턴청크일때와 그냥 청크일때 맵 풀링 고려해서 짜기.
                 MapAndObjPool.GetInstance().TurnInPoolObj(floorChunk);
 
                 floorChunk = null;
@@ -80,7 +78,7 @@ namespace hcp
                 if (objs[i] != null)
                     MapAndObjPool.GetInstance().TurnInPoolObj(objs[i]);
             }
-            objs.Clear();//참조만 날라감. 괜찮음.
+            objs.Clear();
 
             isNowShowed = false;
         }
@@ -140,7 +138,7 @@ namespace hcp
 
             if (false == UpperHuddleCheck(objNum, changingType, soa))
             {
-                Debug.Log("어퍼허들 체크에서 삑살.");
+                Debug.Log("어퍼허들 체크에서 오류.");
                 return;
             }
 
@@ -164,12 +162,12 @@ namespace hcp
             FixedObjGenerator.FixedObjGen(spg, soa.spawnObjType, ref objs);
         }
 
-        public void ChangeFloor(E_WhichTurn whichTurn)    //그냥 청크면 낙턴으로 보내줄것.
+        public void ChangeFloor(E_WhichTurn whichTurn)   
         {
             if (floorChunk == null) ErrorManager.SpurtError("생성도 안됐는데 청크를 바꾸려함,");
             if (this.whichTurn == whichTurn)
             {
-                Debug.Log("똑같은 턴 반향임");
+                Debug.Log("똑같은 턴 방향임");
                 return;
             }
 
@@ -206,7 +204,7 @@ namespace hcp
                         = MapAndObjPool.GetInstance().GetChunkInPool();
                     break;
                 default:
-                    ErrorManager.SpurtError("위치턴이 아무것도 아닌 심각한 오류.");
+                    ErrorManager.SpurtError("위치턴이 아무것도 아닌 오류.");
                     break;
             }
             floorChunk.transform.position = bornPos;

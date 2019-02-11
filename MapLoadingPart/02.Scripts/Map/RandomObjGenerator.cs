@@ -63,7 +63,6 @@ namespace hcp
             if (sum.Equals(0)) return E_SPAWN_OBJ_TYPE.NOTHING;
 
             float randProb = Random.Range(0f, sum);
-           // Debug.Log("백분율 확률은" +randProb);
 
             float formerSum = 0;
 
@@ -73,7 +72,6 @@ namespace hcp
 
                 if (randProb <= formerSum + probs[i])
                 {
-                  //  Debug.Log((E_SPAWN_OBJ_TYPE)i + "선택");
                     return (E_SPAWN_OBJ_TYPE)i;
                 }
                 
@@ -157,12 +155,7 @@ namespace hcp
 
             return temp;
         }
-
-       
-
-        //마그넷이 뜨면 코인의 확률을 더 올려준다든지,
-        //!!!볼은 절대 연속으로 세번 나오거나 하면 안돼!!!!!
-        //이제 타입 배열만 뱉도록 하게.
+        
         public StageObjArr RandomObjGen()
         {
             int upperFlag = 0;

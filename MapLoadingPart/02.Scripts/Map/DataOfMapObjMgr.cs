@@ -76,7 +76,7 @@ namespace hcp {
                     return;
                 }
             }
-            ErrorManager.SpurtError("문제여문제");
+            ErrorManager.SpurtError("문제");
 
         }
 

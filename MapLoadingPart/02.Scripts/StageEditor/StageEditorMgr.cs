@@ -136,8 +136,6 @@ namespace hcp {
         void ClearAndShowChunks()
         {
             DisappearAllChunks();
-            //받은 포지션 값의 청크가 회전 청크인지, 그 범위에 포함인지, 등을 알아내어 적절한 처리를 꼭 해줄것!!
-
             if (position < Constants.firstObjSpawn) ErrorManager.SpurtError("포지션이 2보다 작음!!");
 
             if (position == Constants.firstObjSpawn)
@@ -154,7 +152,6 @@ namespace hcp {
 
             for (int i = 0; i < candidates.Length; i++)
             {
-                //-1 경우에만 전에 턴청크 때문에 안그려줘야하는지 체크해줄 필요가 있어.
                 if (i == 0 && IsPositionInTurnChunksNullArea(position + candidates[0])) continue;
 
                 StageEditorST sest = 
@@ -176,14 +173,13 @@ namespace hcp {
 
             for (int i = 1; i < candidates.Length; i++)
             {
-                MakeChunk(candidates[i], position);//스타팅이니까 회전청크는 신경쓸 필요 없을듯.
+                MakeChunk(candidates[i], position);
             }
         }
 
         StageEditorST MakeChunk(int candidateNum, int standardPos)
         {
             int pos = candidateNum + standardPos;
-           // print(pos + "에 메이크 청크");
             for (int i = 0; i < EditSTList.Count; i++)
             {
                 if (EditSTList[i].pos == pos)
@@ -268,13 +264,13 @@ namespace hcp {
                 if (i < 5)  //새로 생긴 회전 청크를 위해 비워두는 구간.
                 {
                     sest = FindEditSTByPos(pos + i);
-                    if (sest != null)   //여기 뭔가 있으면
+                    if (sest != null)   
                     {
                         sest.ReadyForGrave();
                         EditSTList.Remove(sest);
                     }
                 }
-                //이후 애들은 터닝텀에 걸리므로 턴청크일때 삭제해줘야함.
+                //이후는 터닝텀에 걸리므로 턴청크일때 삭제해줘야함.
                 else
                 {
                     sest = FindEditSTByPos(pos + i);
@@ -292,7 +288,7 @@ namespace hcp {
             if (pos < Constants.turningTerm) return false;
 
             StageEditorST sest = FindEditSTByPos(pos);
-            if (sest != null) return false;  //뭐라도 있으니까 상관없음.
+            if (sest != null) return false; 
             
             //널인 경우라면.  회전 청크 보간 청크라서 널인지를 파악
             //4는 굉장히 회전 청크의 상태에 의존한 값임!
@@ -312,7 +308,7 @@ namespace hcp {
             if (pos < Constants.turningTerm) return false;
 
             StageEditorST sest = FindEditSTByPos(pos);
-            if (sest != null) return false;  //뭐라도 있으니까 상관없음.
+            if (sest != null) return false;  
 
             //널인 경우라면.  회전 청크 보간 청크라서 널인지를 파악
             //4는 굉장히 회전 청크의 상태에 의존한 값임!
@@ -336,9 +332,9 @@ namespace hcp {
                 return;
             }
 
-            StageEditorST sest = FindEditSTByPos(position); //현재 포지션이 턴청크라면!
+            StageEditorST sest = FindEditSTByPos(position); 
             if (sest != null && sest.IsTurnChunks())
-                position += 5;    //턴청크 구간 점프
+                position += 5;    
             else position++;
         }
 
@@ -362,9 +358,7 @@ namespace hcp {
             SortEditSTList();
             return EditSTList[EditSTList.Count - 1].pos;
         }
-
-        //얘들 나중에 인터페이스로 뺼까 말까 한번 고민해보자.
-        //아니면 콜백을 걸어놓든지.
+        
         public void ChangeObjThisChunk(int spawnPointNum, E_SPAWN_OBJ_TYPE objType)
         {
             StageEditorST sest = FindEditSTByPos(position);
@@ -389,7 +383,7 @@ namespace hcp {
             if(whichTurn != E_WhichTurn.NOT_TURN)   //회전 청크로 바꿨다면 조정
             ModerateListForTurnChunks(position);
 
-            ClearAndShowChunks();   //청크를 바꿨으면 빈공간 나가리가 쭉 생기게 되니까.
+            ClearAndShowChunks();   
         }
 
         public bool CanItBeTurnChunks()
@@ -398,7 +392,7 @@ namespace hcp {
             {
                 return false;
             }
-            for (int i = -1; i > -Constants.turningTerm; i--)    //전 터닝텀 구간 까지 터닝 청크가 있는지 체크.
+            for (int i = -1; i > -Constants.turningTerm; i--)   
             {
                 StageEditorST sest = FindEditSTByPos(position + i);
                 if (sest!=null &&  sest.IsTurnChunks())
