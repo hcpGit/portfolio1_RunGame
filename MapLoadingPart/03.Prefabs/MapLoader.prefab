@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1013770424021588}
+  m_IsPrefabAsset: 1
+--- !u!1 &1013770424021588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4266075057434016}
+  - component: {fileID: 114957365066041760}
+  - component: {fileID: 114059000495547410}
+  - component: {fileID: 114773068518520588}
+  - component: {fileID: 114861583780877170}
+  - component: {fileID: 114817885150483390}
+  - component: {fileID: 114029089618473852}
+  m_Layer: 0
+  m_Name: MapLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4266075057434016
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114029089618473852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd418d3d74624e4a982c9b9ca4e4f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HPPLUS: 0
+  INVINCIBLE: 0
+  SHIELD: 0
+  COIN: 0
+  COIN_STRAIGHT: 0
+  COIN_PARABOLA: 0
+  MAGNET: 0
+  BALL: 0
+  HUDDLE: 0
+  UPPER_HUDDLE_1: 0
+  UPPER_HUDDLE_2: 0
+  UPPER_HUDDLE_3: 0
+  FIRE: 0
+  NOTHING: 0
+--- !u!114 &114059000495547410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18da50c881e7145b453a2e9a95dfc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunk: {fileID: 1853945241947306, guid: 549baa20170142c4d80b7d0ba2fd35b9, type: 2}
+  turnLeftChunks: {fileID: 1136947583070796, guid: d9afcb8841b10bb43bc2aae92ee388ee,
+    type: 2}
+  turnRightChunks: {fileID: 1633549812117858, guid: 29eebeeb6c01b464fb124b692f77d6c7,
+    type: 2}
+  obstacleBall: {fileID: 1908247960883122, guid: ee5c9515f8a1c2544bdee057314a9b2e,
+    type: 2}
+  obstacleHuddle: {fileID: 1263427397763776, guid: 76febfcd3227f434389ffd8b9fc7b522,
+    type: 2}
+  obstacleUpperHuddle_1: {fileID: 1742318391388928, guid: 3ce726c1464135b489b97399defa3c99,
+    type: 2}
+  obstacleUpperHuddle_2: {fileID: 1109369816598114, guid: 87d8ea85791eca240a802e92ead3fd60,
+    type: 2}
+  obstacleUpperHuddle_3: {fileID: 1429672855115164, guid: 47e65472dea097843acb5bc34ebfe95d,
+    type: 2}
+  obstacleFire: {fileID: 1986836281195050, guid: 17c04370040159a4e99cce4920bf16a3,
+    type: 2}
+  bossObsFireBall: {fileID: 0}
+  bossObsBreath: {fileID: 0}
+  bossObsMeteor: {fileID: 0}
+  item_HPPLUS: {fileID: 1040533653885940, guid: 06d83a98b203fcd4982ac2ff57f1b84b,
+    type: 2}
+  item_INVINCIBLE: {fileID: 1040533653885940, guid: 08d138fc21776274ebfd2fd4c874ebf4,
+    type: 2}
+  item_SHIELD: {fileID: 1040533653885940, guid: 8f3ef991c2b5f7046be6f031d23d4c07,
+    type: 2}
+  item_COIN: {fileID: 1040533653885940, guid: d370b134458e78d44a2080c376d5539f, type: 2}
+  item_COIN_Parabola: {fileID: 1855603753154600, guid: bd4a1d90b000dce42b921c10c38b1e45,
+    type: 2}
+  item_COIN_Straight: {fileID: 1221434400342004, guid: d79b85473ca5d0c42934005356dbe3b0,
+    type: 2}
+  item_MAGNET: {fileID: 1040533653885940, guid: cff209abeae286e4e923ba5f67b25240,
+    type: 2}
+  chunkPool: []
+  turnLeftChunksPool: []
+  turnRightChunksPool: []
+  obsBallPool: []
+  obsHuddlePool: []
+  obsUpperHuddle_1_Pool: []
+  obsUpperHuddle_2_Pool: []
+  obsUpperHuddle_3_Pool: []
+  obsFirePool: []
+  bossObsFireBallPool: []
+  bossObsBreathPool: []
+  bossObsMeteorPool: []
+  itemHPPlusPool: []
+  itemInvinciblePool: []
+  itemShieldPool: []
+  itemCoinPool: []
+  itemCoin_StraightLine_Pool: []
+  itemCoin_Parabola_Pool: []
+  itemMagnetPool: []
+--- !u!114 &114773068518520588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb1a5490a931034487a5988e69e6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posList: []
+--- !u!114 &114817885150483390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a560ac513009e347bf8a3cfca77c3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endingStageLand: {fileID: 1119115721780634, guid: 50a9e160f4c2ea94f90f58fa61b909c6,
+    type: 2}
+  endingPoint: 0
+  chunk: {fileID: 1853945241947306, guid: 549baa20170142c4d80b7d0ba2fd35b9, type: 2}
+  nowPos: 0
+  newPos: 0
+--- !u!114 &114861583780877170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e41cf6c60ff734d935b8a279682992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toLeftChunks: {fileID: 1136947583070796, guid: d9afcb8841b10bb43bc2aae92ee388ee,
+    type: 2}
+  toRightChunks: {fileID: 1633549812117858, guid: 29eebeeb6c01b464fb124b692f77d6c7,
+    type: 2}
+  whereToTurn: {fileID: 0}
+--- !u!114 &114957365066041760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1013770424021588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f576b40204179f248b9a397582cccd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
